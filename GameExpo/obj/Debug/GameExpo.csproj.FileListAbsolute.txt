@@ -16,3 +16,4 @@ C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\obj\Debug\GameExpo.
 C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\obj\Debug\GameExpo.csproj.CoreCompileInputs.cache
 C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\obj\Debug\GameExpo.exe
 C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\obj\Debug\GameExpo.pdb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\SmileyWalk.xnb

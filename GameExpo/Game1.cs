@@ -4,80 +4,88 @@ using Microsoft.Xna.Framework.Input;
 
 namespace GameExpo
 {
-    /// <summary>
-    /// This is the main type for your game.
-    /// </summary>
+
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        
+        private float frameRate;
+        private AnimatedSprite shipF1;
+        private GamePadState controllerPlayer1;
+        private GamePadState controllerPlayer2;
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
 
-        /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
-        /// </summary>
+
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
+            graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+            graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
+            controllerPlayer1 = GamePad.GetState(PlayerIndex.One);
+            controllerPlayer2 = GamePad.GetState(PlayerIndex.Two);
             base.Initialize();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
+
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            Texture2D texture = Content.Load<Texture2D>("SmileyWalk");// modificar la imagen por la del fzero u otro
+
+            shipF1 = new AnimatedSprite(texture, 4, 4);
+
         }
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// game-specific content.
-        /// </summary>
+
         protected override void UnloadContent()
         {
-            // TODO: Unload any non ContentManager content here
+
         }
 
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            if (controllerPlayer1.IsConnected & controllerPlayer2.IsConnected)
+            {
+                controllerPlayer1 = GamePad.GetState(PlayerIndex.One);// may cause perfomance or connecting propblems , need testing (migth remove in near future)
+                controllerPlayer2 = GamePad.GetState(PlayerIndex.Two);//  ||   ||    ||   || 
 
+                if (controllerPlayer1.DPad.Down == ButtonState.Pressed)
+                {
+                    // move
+                }
+
+                if (controllerPlayer1.Triggers.Left > 0)
+                {
+                    // accelerate
+                }
+            }
+
+            frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
+            shipF1.Update();
             base.Update(gameTime);
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
+
+
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Blue);
 
-            // TODO: Add your drawing code here
+            shipF1.Draw(spriteBatch, new Vector2(400, 200));
 
             base.Draw(gameTime);
         }
+
+
     }
 }
