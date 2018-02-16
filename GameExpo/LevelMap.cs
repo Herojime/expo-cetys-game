@@ -14,5 +14,9 @@ namespace GameExpo
         {
 
         }
+        public void update()
+        {
+            // checa la fisica
+        }
     }
 }

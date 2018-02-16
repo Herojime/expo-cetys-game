@@ -10,9 +10,19 @@ namespace GameExpo
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private float frameRate;
-        private AnimatedSprite shipF1;
         private GamePadState controllerPlayer1;
         private GamePadState controllerPlayer2;
+         private AnimatedSprite a;
+        private Player P1;
+        private Player P2;
+        private LevelMap world1;
+        private Texture2D road1;
+        private Texture2D road2;
+        private bool started;
+        private bool paused;
+        // musica 
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -28,6 +38,8 @@ namespace GameExpo
             graphics.ApplyChanges();
             controllerPlayer1 = GamePad.GetState(PlayerIndex.One);
             controllerPlayer2 = GamePad.GetState(PlayerIndex.Two);
+            paused = true;
+            started = false;
             base.Initialize();
         }
 
@@ -36,10 +48,11 @@ namespace GameExpo
         {
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            Texture2D texture = Content.Load<Texture2D>("SmileyWalk");// modificar la imagen por la del fzero u otro
-
-            shipF1 = new AnimatedSprite(texture, 4, 4);
-
+           road1 = Content.Load<Texture2D>("Road");
+           road2 = Content.Load<Texture2D>("Road");
+            P1 = new Player(Content.Load<Texture2D>("spaceship1"),30,900);
+            P2 = new Player(Content.Load<Texture2D>("spaceship1"),900,900);
+        
         }
 
 
@@ -51,27 +64,51 @@ namespace GameExpo
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            if (controllerPlayer1.IsConnected & controllerPlayer2.IsConnected)
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
-                controllerPlayer1 = GamePad.GetState(PlayerIndex.One);// may cause perfomance or connecting propblems , need testing (migth remove in near future)
-                controllerPlayer2 = GamePad.GetState(PlayerIndex.Two);//  ||   ||    ||   || 
+                Exit(); // se sale del juego
+            }
+           
 
-                if (controllerPlayer1.DPad.Down == ButtonState.Pressed)
-                {
-                    // move
-                }
+            if (Keyboard.GetState().IsKeyDown(Keys.S)&&paused==true)// Hacer Start el juego y animacion de salida
+            {
+                paused = false;
+                started = true;
+               
+            }
 
-                if (controllerPlayer1.Triggers.Left > 0)
+            if (Keyboard.GetState().IsKeyDown(Keys.P) && started == true)
+            {
+                paused = true;
+                started = false;
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.R))
+            {
+                //metodo que rezetea todo el juego
+            }
+
+            if (started)
+            {
+                P1.placeHolder.Update();
+                P2.placeHolder.Update();
+                if (controllerPlayer1.IsConnected & controllerPlayer2.IsConnected)
                 {
-                    // accelerate
+                    P1.placeHolder.Update();
+                    P2.placeHolder.Update();
+                    // level map update adentro se hace update de map objects
+                    P1.Input();
+                    P2.Input();
                 }
+                else
+                {
+                    paused = true;
+                    started = false;
+                }   
             }
 
             frameRate = 1 / (float)gameTime.ElapsedGameTime.TotalSeconds;
-            shipF1.Update();
+          
             base.Update(gameTime);
         }
 
@@ -79,10 +116,15 @@ namespace GameExpo
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Blue);
-
-            shipF1.Draw(spriteBatch, new Vector2(400, 200));
-
+            GraphicsDevice.Clear(Color.White);
+            
+            spriteBatch.Begin();
+            spriteBatch.Draw(road1, new Rectangle(0,0, 768, GraphicsDevice.DisplayMode.Height), Color.PaleTurquoise);
+            spriteBatch.Draw(road1, new Rectangle(1152, 0, 768, GraphicsDevice.DisplayMode.Height), Color.PaleVioletRed);
+            spriteBatch.End();
+            P1.Draw(spriteBatch);
+            P2.Draw(spriteBatch);
+            // world1. metodo para imprimir todos los objetos
             base.Draw(gameTime);
         }
 

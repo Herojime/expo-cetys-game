@@ -4,27 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
 namespace GameExpo
 {
     class MapObject
     {
-        // enemy or boost item 
-        // will do different animation based on grid
         public AnimatedSprite placeHolder;
         public bool enemy;
+        private float positionX; 
+        private float positionY;
+        public int positionMap; // este  es el "lane" en el que estan
+        public int secuencia; //  este es el orden en el cual estan callendo
+        private int currentUpdate;
+        private int updatesPerFrame;
+        private int currentFrame;
+        private int totalFrames;
 
-        public MapObject()
+        public MapObject(Texture2D pH, int x, int y, bool type, int FU, int row,int colum,int MP,int SC)
         {
-
+            placeHolder = new AnimatedSprite(pH, row, colum, FU);
+            positionX = x;
+            positionY = y;
+            enemy = type;
+            secuencia = SC;
+            positionMap = MP;
+            totalFrames = 60;
         }
 
         public void Update()
         {
+            currentUpdate++;
+            if (currentUpdate == updatesPerFrame)
+            {
+                currentUpdate = 0;
 
+                currentFrame++;
+                if (currentFrame == totalFrames)
+                {
+                    currentFrame = 0;
+                    positionY -= 10;
+                }
+            }
         }
-        public void Draw()
-        {
 
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            placeHolder.Draw(spriteBatch, new Vector2(positionX, positionY),1,1);
         }
     }
 }

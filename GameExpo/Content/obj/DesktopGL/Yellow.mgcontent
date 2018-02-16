@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/SmileyWalk.png</SourceFile>
-  <SourceTime>2018-02-15T01:51:46.1289879-08:00</SourceTime>
-  <DestFile>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/bin/DesktopGL/SmileyWalk.xnb</DestFile>
-  <DestTime>2018-02-15T01:58:59.2155043-08:00</DestTime>
+  <SourceFile>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/Yellow.png</SourceFile>
+  <SourceTime>2018-02-16T04:19:38.0926366-08:00</SourceTime>
+  <DestFile>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/bin/DesktopGL/Yellow.xnb</DestFile>
+  <DestTime>2018-02-16T04:20:23.0411838-08:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-01T07:05:36-08:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

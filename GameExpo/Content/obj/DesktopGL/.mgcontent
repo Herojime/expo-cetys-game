@@ -4,6 +4,15 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/SmileyWalk.png</File>
+    <File>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/spaceship1.png</File>
+    <File>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/Game Over.png</File>
+    <File>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/You Win.png</File>
+    <File>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/spikeballlj3.png</File>
+    <File>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/Road.png</File>
+    <File>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/Green.png</File>
+    <File>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/red.png</File>
+    <File>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/Yellow.png</File>
+    <File>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/Go.png</File>
+    <File>C:/Users/aleja/Documents/Projectito/expo-cetys-game/GameExpo/Content/Ready.png</File>
   </SourceFiles>
 </SourceFileCollection>

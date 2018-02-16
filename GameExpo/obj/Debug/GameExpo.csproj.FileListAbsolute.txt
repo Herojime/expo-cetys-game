@@ -16,4 +16,13 @@ C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\obj\Debug\GameExpo.
 C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\obj\Debug\GameExpo.csproj.CoreCompileInputs.cache
 C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\obj\Debug\GameExpo.exe
 C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\obj\Debug\GameExpo.pdb
-C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\SmileyWalk.xnb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\Game Over.xnb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\spaceship1.xnb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\spikeballlj3.xnb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\You Win.xnb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\Road.xnb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\Go.xnb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\Green.xnb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\Ready.xnb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\red.xnb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\Yellow.xnb

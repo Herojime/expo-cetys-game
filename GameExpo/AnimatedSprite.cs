@@ -15,27 +15,35 @@ namespace GameExpo
         public int Columns { get; set; }
         private int currentFrame;
         private int totalFrames;
-        //private int total width 
-        //private int total height
-        //private int scale factor 
+        public Rectangle destinationRectangle { get; set; }
+        private int currentUpdate;
+        private int updatesPerFrame;
 
-        public AnimatedSprite(Texture2D texture, int rows, int columns)
+        public AnimatedSprite(Texture2D texture, int rows, int columns,int FU)
         {
             Texture = texture;
             Rows = rows;
             Columns = columns;
             currentFrame = 0;
             totalFrames = Rows * Columns;
+            currentUpdate = 0;
+            updatesPerFrame = 3;
         }
 
         public void Update()
         {
-            currentFrame++;
-            if (currentFrame == totalFrames)
-                currentFrame = 0;
+            currentUpdate++;
+            if (currentUpdate == updatesPerFrame)
+            {
+                currentUpdate = 0;
+
+                currentFrame++;
+                if (currentFrame == totalFrames)
+                    currentFrame = 0;
+            }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 location)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location,int fatctorX,int factorY)
         {
             int width = Texture.Width / Columns;
             int height = Texture.Height / Rows;
@@ -43,8 +51,7 @@ namespace GameExpo
             int column = currentFrame % Columns;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);//Aqui se hace modificacion para crear ilusion "3D"
-
+            destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width*fatctorX, height*factorY);
             spriteBatch.Begin();
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
             spriteBatch.End();
