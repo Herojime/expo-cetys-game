@@ -15,6 +15,9 @@ namespace GameExpo
         public int Columns { get; set; }
         private int currentFrame;
         private int totalFrames;
+        //private int total width 
+        //private int total height
+        //private int scale factor 
 
         public AnimatedSprite(Texture2D texture, int rows, int columns)
         {
@@ -40,7 +43,7 @@ namespace GameExpo
             int column = currentFrame % Columns;
 
             Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
-            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);
+            Rectangle destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width, height);//Aqui se hace modificacion para crear ilusion "3D"
 
             spriteBatch.Begin();
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
