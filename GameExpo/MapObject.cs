@@ -14,16 +14,17 @@ namespace GameExpo
     {
         public AnimatedSprite placeHolder;
         public bool enemy;
-        private float positionX; 
-        private float positionY;
+        public float positionX; 
+        public float positionY;
         public int positionMap; // este  es el "lane" en el que estan
         public int secuencia; //  este es el orden en el cual estan callendo
+        public float factov;
         private int currentUpdate;
         private int updatesPerFrame;
         private int currentFrame;
         private int totalFrames;
 
-        public MapObject(Texture2D pH, int x, int y, bool type, int FU, int row,int colum,int MP,int SC)
+        public MapObject(Texture2D pH, int x, int y, bool type, int FU, int row,int colum,int MP,int SC,int TF)
         {
             placeHolder = new AnimatedSprite(pH, row, colum, FU);
             positionX = x;
@@ -31,7 +32,9 @@ namespace GameExpo
             enemy = type;
             secuencia = SC;
             positionMap = MP;
-            totalFrames = 60;
+            currentUpdate = 0;
+            updatesPerFrame = 5;
+            placeHolder.totalFrames = TF;
         }
 
         public void Update()
@@ -39,14 +42,11 @@ namespace GameExpo
             currentUpdate++;
             if (currentUpdate == updatesPerFrame)
             {
+                //agregar delay
                 currentUpdate = 0;
-
-                currentFrame++;
-                if (currentFrame == totalFrames)
-                {
-                    currentFrame = 0;
-                    positionY -= 10;
-                }
+                
+                    positionY += (10*factov);
+               
             }
         }
 

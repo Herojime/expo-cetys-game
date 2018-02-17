@@ -49,18 +49,6 @@
 /processorParam:TextureFormat=Color
 /build:You Win.png
 
-#begin spikeballlj3.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:spikeballlj3.png
-
 #begin Road.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -132,4 +120,29 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Ready.png
+
+#begin Dream Chaser.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Dream Chaser.mp3
+
+#begin spikeballlj3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:spikeballlj3.png
+
+#begin Puntuacion.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Puntuacion.spritefont
 

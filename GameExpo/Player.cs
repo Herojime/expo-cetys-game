@@ -15,7 +15,7 @@ namespace GameExpo
         public AnimatedSprite placeHolder; // imagen
         private int positionX; //movimento horizontal
         private int positionY; // movimiento vertical
-        private float factorVelocity; // velocidad
+        public float factorVelocity; // velocidad
         private GamePadState controllerPlayer1; 
         public int positionMap; // posision en el mapa "lane"
         private int currentUpdate;
@@ -25,7 +25,8 @@ namespace GameExpo
         int totalmovimientosL;
         int totalmovimientosR;
         float maximumV;
-
+        public int monkaS;
+        public float Puntuacion;
         public Player(Texture2D pH,int x,int y)
         {
             // le doy una velocidad basica o pongo 0 ?? y que halla boton que acelere en el control
@@ -34,54 +35,53 @@ namespace GameExpo
             positionY = y;
             totalFrames = 60;
             factorVelocity = 1.0f;
-            updatesPerFrame = 1;
+            updatesPerFrame = 5;
             totalmovimientosL = 1;
             totalmovimientosR = 1;
-            maximumV = 3.0f;
+            maximumV = 5.0f;
             positionMap = 0;// o centro -1  izquierda  +1 derecha
+            Puntuacion = 0;
+            monkaS = 3;
         }
         
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Color A)
         {
-            placeHolder.Draw(spriteBatch,new Vector2(positionX,positionY),2,2);
+            placeHolder.Draw(spriteBatch,new Vector2(positionX,positionY),4,3,A);
         }
 
-        public void Input()
+        public void Input(GamePadState e)
         {
             currentUpdate++;
             if (currentUpdate == updatesPerFrame)
             {
                 currentUpdate = 0;
 
-                currentFrame++;
-                if (currentFrame == totalFrames)
-                {
-                    if (controllerPlayer1.DPad.Left == ButtonState.Pressed)
+                
+                    if (e.DPad.Left == ButtonState.Pressed)
                     {
                         // move left
                         if (totalmovimientosL>0)
                         {
-                            positionX -= 60;
+                            positionX -=250;
                             totalmovimientosL--;
                             totalmovimientosR++;
                             positionMap--;
                         }
                     }
-                    else
-                    {
-                        if (controllerPlayer1.DPad.Right == ButtonState.Pressed)
+                   
+                        if (e.DPad.Right == ButtonState.Pressed)
                         {
                             // move rigth 
                             if (totalmovimientosR > 0)
                             {
-                                positionX += 60;
+                                positionX += 250;
                                 totalmovimientosR--;
                                 totalmovimientosL++;
                                 positionMap++;
                             }
                         }
-                    }
-                    if (controllerPlayer1.Triggers.Left > 0)
+                    
+                    if (e.Triggers.Right > 0)
                     {
                         if (factorVelocity<maximumV)
                         {
@@ -96,7 +96,7 @@ namespace GameExpo
                             factorVelocity /= 1.25f;
                         }
                     }
-                }
+                
             }
         }
 

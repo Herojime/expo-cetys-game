@@ -26,3 +26,6 @@ C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCP
 C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\Ready.xnb
 C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\red.xnb
 C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\Yellow.xnb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\Dream Chaser.ogg
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\Dream Chaser.xnb
+C:\Users\aleja\Documents\Projectito\expo-cetys-game\GameExpo\bin\DesktopGL\AnyCPU\Debug\Content\Puntuacion.xnb

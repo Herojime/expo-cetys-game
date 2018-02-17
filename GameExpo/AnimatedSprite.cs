@@ -14,7 +14,7 @@ namespace GameExpo
         public int Rows { get; set; }
         public int Columns { get; set; }
         private int currentFrame;
-        private int totalFrames;
+        public int totalFrames;
         public Rectangle destinationRectangle { get; set; }
         private int currentUpdate;
         private int updatesPerFrame;
@@ -54,6 +54,19 @@ namespace GameExpo
             destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width*fatctorX, height*factorY);
             spriteBatch.Begin();
             spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, Color.White);
+            spriteBatch.End();
+        }
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, int fatctorX, int factorY, Color A)
+        {
+            int width = Texture.Width / Columns;
+            int height = Texture.Height / Rows;
+            int row = (int)((float)currentFrame / (float)Columns);
+            int column = currentFrame % Columns;
+
+            Rectangle sourceRectangle = new Rectangle(width * column, height * row, width, height);
+            destinationRectangle = new Rectangle((int)location.X, (int)location.Y, width * fatctorX, height * factorY);
+            spriteBatch.Begin();
+            spriteBatch.Draw(Texture, destinationRectangle, sourceRectangle, A);
             spriteBatch.End();
         }
     }
